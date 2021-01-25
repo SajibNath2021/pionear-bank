@@ -1,0 +1,27 @@
+body{
+    padding: 100px;
+}
+.submitArea{
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 50px;
+}
+#transection-area{
+    display: none;
+}
+.balance{
+    background-color: orange;
+}
+.diposit{
+    background-color: slateblue;
+}
+.withdraw{
+    background-color: lightsalmon;
+}
+.status{
+    margin: 0 20px;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+}
