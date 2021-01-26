@@ -31,7 +31,7 @@
            <div class="col-md-4 ">
                <div class="withdraw status">
                 <h5>Withdraw</h5>
-                <h1>$00</h1>
+                <h1>$<span id="currentWithdraw"> 00</span></h1>
                </div>
               
            </div>
@@ -78,19 +78,28 @@
        const depositButton = document.getElementById('depositBtn');
        depositButton.addEventListener('click', function(){
             const depositNumber =  getInputNumber('depositAmount');
-
-            // const currentDeposit = document.getElementById('currentDeposit').innerText;
-            // const currentDepositNumber = parseFloat(currentDeposit);
-            // const totalDeposit = currentDepositNumber + depositNumber ;
-
-            // document.getElementById('currentDeposit').innerText = totalDeposit;
             updateSpantext('currentDeposit', depositNumber);
             updateSpantext("currentBalance", depositNumber);
            
 
             document.getElementById('depositAmount').value = "";
        })
-      
+
+       //Withdraw btn handler
+       const withdrawButton = document.getElementById("addWithdraw");
+       withdrawButton.addEventListener('click', function(){
+        const withdrawNumber = getInputNumber('withdrawAmount');
+        updateSpantext('currentWithdraw', withdrawNumber);
+        updateSpantext('currentBalance', -1 *withdrawNumber)
+        document.getElementById('withdrawAmount').value = "";
+           
+       })
+//functions 
+       function getInputNumber(id){
+        const Amount = document.getElementById(id).value;
+           const Number = parseFloat(Amount);
+           return Number;
+       }
 
        function updateSpantext(id, depositNumber ){
         const Current = document.getElementById(id).innerText;
@@ -99,20 +108,9 @@
             document.getElementById(id).innerText = total;
        }
        
-       //Withdraw btn handler
+      
        
-       const withdrawButton = document.getElementById("addWithdraw");
-       withdrawButton.addEventListener('click', function(){
-        const withdrawAmount = getInputNumber('withdrawAmount');
-
-           
-       })
-
-       function getInputNumber(id){
-        const withdrawAmount = document.getElementById(id).value;
-           const withdrawNumber = parseFloat(withdrawAmount);
-           return withdrawNumber;
-       }
+       
 
    </script>
     
